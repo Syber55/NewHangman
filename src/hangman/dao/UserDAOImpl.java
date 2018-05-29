@@ -4,11 +4,14 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
+
 import hangman.model.User;
 
 public class UserDAOImpl implements UserDAO {
+	
+	Connection conn = DBConnection.getConnectionToDatabase();
 
-	static Connection conn;
+//	static Connection conn;
 	static PreparedStatement ps;
 
 	@Override
@@ -16,7 +19,7 @@ public class UserDAOImpl implements UserDAO {
 		int status = 0;
 		try {
 
-			conn = ConnectionManager.getInstance().getConnection();
+//			conn = DBConnection.getConnectionToDatabase();
 			ps = conn.prepareStatement("INSERT INTO users VALUES (null,?,?) ");
 			ps.setString(1, user.getUsername());
 			ps.setString(2, user.getPassword());
@@ -37,7 +40,7 @@ public class UserDAOImpl implements UserDAO {
 
 		try {
 
-			conn = ConnectionManager.getInstance().getConnection();
+			conn = DBConnection.getConnectionToDatabase();
 			ps = conn.prepareStatement("SELECT * FROM users WHERE username=? AND password=?");
 			
 			ps.setString(1, username);
