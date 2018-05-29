@@ -15,4 +15,6 @@ public interface WordDAO {
 	
 	public Rijeci getRandomWord() throws SQLException;
 	
+	public Rijeci getRandomCategoryWord(int categoryID) throws SQLException;
+	
 }
