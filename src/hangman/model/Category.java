@@ -6,6 +6,11 @@ public class Category {
 	String categoryName;
 	public Category() {
 	}
+	public Category(int categoryID, String categoryName) {
+		this.categoryID = categoryID;
+		this.categoryName = categoryName;
+	}
+
 	public int getCategoryID() {
 		return categoryID;
 	}
