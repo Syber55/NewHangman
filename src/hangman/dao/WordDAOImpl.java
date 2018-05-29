@@ -85,5 +85,12 @@ public class WordDAOImpl implements WordDAO {
 		
 		return words.get(random);
 	}
+	
+	public Rijeci getRandomCategoryWord(int categoryID) throws SQLException{
+		ArrayList<Rijeci> words = getWords(categoryID);
+		Random rand = new Random();
+		int random = rand.nextInt(words.size()-1);
+		return words.get(random);
+	}
 
 }
