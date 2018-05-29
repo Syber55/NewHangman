@@ -12,7 +12,7 @@ import hangman.model.Rijeci;
 
 public class WordDAOImpl implements WordDAO {
 
-	Connection connection = ConnectionManager.getInstance().getConnection();
+	Connection connection = DBConnection.getConnectionToDatabase();
 
 	@Override
 	public ArrayList<Rijeci> getWords() throws SQLException {
@@ -28,7 +28,7 @@ public class WordDAOImpl implements WordDAO {
 			rs = statement.executeQuery(query);
 
 			while (rs.next()) {
-				Rijeci word = new Rijeci(rs.getString("Word"), rs.getInt("CategopryID"));
+				Rijeci word = new Rijeci(rs.getString("Word"), rs.getInt("CategoryID"));
 				words.add(word);
 			}
 		}
@@ -50,7 +50,7 @@ public class WordDAOImpl implements WordDAO {
 			rs = statement.executeQuery(query);
 
 			while (rs.next()) {
-				Rijeci word = new Rijeci(rs.getString("Word"), rs.getInt("CategopryID"));
+				Rijeci word = new Rijeci(rs.getString("Word"), rs.getInt("CategoryID"));
 				words.add(word);
 			}
 		}
